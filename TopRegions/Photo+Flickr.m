@@ -9,6 +9,7 @@
 #import "Photo+Flickr.h"
 #import "FlickrFetcher.h"
 #import "Photographer+Create.h"
+#import "Region+Create.h"
 
 @implementation Photo (Flickr)
 + (Photo *)photoWithFlickrInfo:(NSDictionary *)photoDictionary inManagedObjectContext:(NSManagedObjectContext *)managedContext
@@ -35,7 +36,7 @@
         NSString *photographerName = [photoDictionary valueForKeyPath:FLICKR_PHOTO_OWNER];
         photo.takenBy = [Photographer phototgrapherWithName:photographerName inMangedObjectContext:managedContext];
         NSString *placeId = [photoDictionary valueForKeyPath:FLICKR_PHOTO_PLACE_ID];
-        photo.takenIn = 
+        photo.takenIn = [Region regionWithId:placeId inManagedObjectContext:managedContext];
     }
     
     return photo;

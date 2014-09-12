@@ -9,5 +9,5 @@
 #import "Region.h"
 
 @interface Region (Create)
-
++ (Region *)regionWithId:(NSString *)regionId inManagedObjectContext:(NSManagedObjectContext *)managedContext;
 @end
