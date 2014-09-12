@@ -6,8 +6,8 @@
 //  Copyright (c) 2014 Nerdery. All rights reserved.
 //
 
-#import "PhotosTableViewController.h"
+#import "CoreDataTableViewController.h"
 
-@interface RegionPhotosTableViewController : PhotosTableViewController
+@interface RegionPhotosTableViewController : CoreDataTableViewController
 
 @end

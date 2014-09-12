@@ -36,7 +36,7 @@
         NSString *photographerName = [photoDictionary valueForKeyPath:FLICKR_PHOTO_OWNER];
         photo.takenBy = [Photographer phototgrapherWithName:photographerName inMangedObjectContext:managedContext];
         NSString *placeId = [photoDictionary valueForKeyPath:FLICKR_PHOTO_PLACE_ID];
-        photo.takenIn = [Region regionWithId:placeId inManagedObjectContext:managedContext];
+        photo.takenIn = [Region regionWithId:placeId withPhotographer:photo.takenBy inManagedObjectContext:managedContext];
     }
     
     return photo;

@@ -28,9 +28,7 @@
 		A2DA286719C34CF2007929F6 /* FlickrFetcherHelper.m in Sources */ = {isa = PBXBuildFile; fileRef = A2DA286619C34CF2007929F6 /* FlickrFetcherHelper.m */; };
 		A2DA286C19C34D48007929F6 /* FlickrFetcher.m in Sources */ = {isa = PBXBuildFile; fileRef = A2DA286B19C34D48007929F6 /* FlickrFetcher.m */; };
 		A2DA286F19C34DE9007929F6 /* ImageViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A2DA286E19C34DE9007929F6 /* ImageViewController.m */; };
-		A2DA287219C34E44007929F6 /* PhotosTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A2DA287119C34E44007929F6 /* PhotosTableViewController.m */; };
 		A2DA287519C34E4E007929F6 /* RecentPhotosTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A2DA287419C34E4E007929F6 /* RecentPhotosTableViewController.m */; };
-		A2DA287819C34E9F007929F6 /* RegionsTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A2DA287719C34E9F007929F6 /* RegionsTableViewController.m */; };
 		A2DA287B19C34ECE007929F6 /* TopRegionsTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A2DA287A19C34ECE007929F6 /* TopRegionsTableViewController.m */; };
 		A2DA287E19C34EEE007929F6 /* RegionPhotosTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A2DA287D19C34EEE007929F6 /* RegionPhotosTableViewController.m */; };
 		A2DA288119C355F9007929F6 /* TopRegions.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = A2DA287F19C355F9007929F6 /* TopRegions.xcdatamodeld */; };
@@ -84,12 +82,8 @@
 		A2DA286B19C34D48007929F6 /* FlickrFetcher.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FlickrFetcher.m; sourceTree = "<group>"; };
 		A2DA286D19C34DE9007929F6 /* ImageViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ImageViewController.h; sourceTree = "<group>"; };
 		A2DA286E19C34DE9007929F6 /* ImageViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ImageViewController.m; sourceTree = "<group>"; };
-		A2DA287019C34E44007929F6 /* PhotosTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PhotosTableViewController.h; sourceTree = "<group>"; };
-		A2DA287119C34E44007929F6 /* PhotosTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PhotosTableViewController.m; sourceTree = "<group>"; };
 		A2DA287319C34E4E007929F6 /* RecentPhotosTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RecentPhotosTableViewController.h; sourceTree = "<group>"; };
 		A2DA287419C34E4E007929F6 /* RecentPhotosTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RecentPhotosTableViewController.m; sourceTree = "<group>"; };
-		A2DA287619C34E9F007929F6 /* RegionsTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RegionsTableViewController.h; sourceTree = "<group>"; };
-		A2DA287719C34E9F007929F6 /* RegionsTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RegionsTableViewController.m; sourceTree = "<group>"; };
 		A2DA287919C34ECE007929F6 /* TopRegionsTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TopRegionsTableViewController.h; sourceTree = "<group>"; };
 		A2DA287A19C34ECE007929F6 /* TopRegionsTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TopRegionsTableViewController.m; sourceTree = "<group>"; };
 		A2DA287C19C34EEE007929F6 /* RegionPhotosTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RegionPhotosTableViewController.h; sourceTree = "<group>"; };
@@ -171,14 +165,10 @@
 				A2DA284219C34C1E007929F6 /* TopRegionsViewController.m */,
 				A2DA286D19C34DE9007929F6 /* ImageViewController.h */,
 				A2DA286E19C34DE9007929F6 /* ImageViewController.m */,
-				A2DA287619C34E9F007929F6 /* RegionsTableViewController.h */,
-				A2DA287719C34E9F007929F6 /* RegionsTableViewController.m */,
 				A2DA287919C34ECE007929F6 /* TopRegionsTableViewController.h */,
 				A2DA287A19C34ECE007929F6 /* TopRegionsTableViewController.m */,
 				A2DA287C19C34EEE007929F6 /* RegionPhotosTableViewController.h */,
 				A2DA287D19C34EEE007929F6 /* RegionPhotosTableViewController.m */,
-				A2DA287019C34E44007929F6 /* PhotosTableViewController.h */,
-				A2DA287119C34E44007929F6 /* PhotosTableViewController.m */,
 				A2DA287319C34E4E007929F6 /* RecentPhotosTableViewController.h */,
 				A2DA287419C34E4E007929F6 /* RecentPhotosTableViewController.m */,
 				A2DA284419C34C1E007929F6 /* Images.xcassets */,
@@ -361,12 +351,10 @@
 				A2DA289719C35FF2007929F6 /* Photo+Flickr.m in Sources */,
 				A2DA287E19C34EEE007929F6 /* RegionPhotosTableViewController.m in Sources */,
 				A2DA287519C34E4E007929F6 /* RecentPhotosTableViewController.m in Sources */,
-				A2DA287819C34E9F007929F6 /* RegionsTableViewController.m in Sources */,
 				A228627B19C36A32003D1B76 /* Region+Create.m in Sources */,
 				A2DA286719C34CF2007929F6 /* FlickrFetcherHelper.m in Sources */,
 				A2DA284319C34C1E007929F6 /* TopRegionsViewController.m in Sources */,
 				A228627819C369E0003D1B76 /* Region.m in Sources */,
-				A2DA287219C34E44007929F6 /* PhotosTableViewController.m in Sources */,
 				A2DA288119C355F9007929F6 /* TopRegions.xcdatamodeld in Sources */,
 				A2DA283A19C34C1E007929F6 /* TopRegionsAppDelegate.m in Sources */,
 				A2DA286319C34C66007929F6 /* CoreDataTableViewController.m in Sources */,

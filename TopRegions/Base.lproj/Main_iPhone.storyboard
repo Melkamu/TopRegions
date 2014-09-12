@@ -23,7 +23,7 @@
             </objects>
             <point key="canvasLocation" x="-145" y="77"/>
         </scene>
-        <!--Top Regions Table View Controller - Top Places-->
+        <!--Top Regions Table View Controller - Top Regions-->
         <scene sceneID="FDV-QZ-wRX">
             <objects>
                 <tableViewController id="Z3S-2Q-oit" customClass="TopRegionsTableViewController" sceneMemberID="viewController">
@@ -32,7 +32,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <prototypes>
-                            <tableViewCell contentMode="scaleToFill" restorationIdentifier="Cell of Place" selectionStyle="blue" accessoryType="disclosureIndicator" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="Cell of Place" textLabel="MYa-AF-oYw" detailTextLabel="mlY-IB-cPa" style="IBUITableViewCellStyleSubtitle" id="Aqs-wE-lBR">
+                            <tableViewCell contentMode="scaleToFill" restorationIdentifier="Cell of Place" selectionStyle="blue" accessoryType="disclosureIndicator" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="Regions Cell" textLabel="MYa-AF-oYw" detailTextLabel="mlY-IB-cPa" style="IBUITableViewCellStyleSubtitle" id="Aqs-wE-lBR">
                                 <rect key="frame" x="0.0" y="86" width="320" height="44"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="Aqs-wE-lBR" id="fXC-Xh-MaI">
@@ -65,7 +65,7 @@
                             <outlet property="delegate" destination="Z3S-2Q-oit" id="8cS-kB-3sh"/>
                         </connections>
                     </tableView>
-                    <navigationItem key="navigationItem" title="Top Places" id="ZnR-aE-fuR"/>
+                    <navigationItem key="navigationItem" title="Top Regions" id="ZnR-aE-fuR"/>
                     <refreshControl key="refreshControl" opaque="NO" multipleTouchEnabled="YES" contentMode="center" enabled="NO" contentHorizontalAlignment="center" contentVerticalAlignment="center" id="Nrf-Vi-A1K">
                         <autoresizingMask key="autoresizingMask"/>
                     </refreshControl>
@@ -264,6 +264,6 @@
         <simulatedScreenMetrics key="destination" type="retina4"/>
     </simulatedMetricsContainer>
     <inferredMetricsTieBreakers>
-        <segue reference="MdH-iT-MNy"/>
+        <segue reference="odj-La-Sv8"/>
     </inferredMetricsTieBreakers>
 </document>

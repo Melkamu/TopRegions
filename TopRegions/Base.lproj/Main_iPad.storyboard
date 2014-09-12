@@ -37,7 +37,7 @@
             </objects>
             <point key="canvasLocation" x="-625" y="-1467"/>
         </scene>
-        <!--Top Regions Table View Controller - Top Places-->
+        <!--Top Regions Table View Controller - Top Regions-->
         <scene sceneID="Osz-DW-QmQ">
             <objects>
                 <tableViewController id="O5Q-BW-9cU" customClass="TopRegionsTableViewController" sceneMemberID="viewController">
@@ -46,7 +46,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <prototypes>
-                            <tableViewCell contentMode="scaleToFill" restorationIdentifier="Cell of Place" selectionStyle="blue" accessoryType="disclosureIndicator" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="Cell of Place" textLabel="M4Q-53-nqA" detailTextLabel="qLx-db-zjd" style="IBUITableViewCellStyleSubtitle" id="OOZ-Fo-0zi">
+                            <tableViewCell contentMode="scaleToFill" restorationIdentifier="Cell of Place" selectionStyle="blue" accessoryType="disclosureIndicator" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="Regions Cell" textLabel="M4Q-53-nqA" detailTextLabel="qLx-db-zjd" style="IBUITableViewCellStyleSubtitle" id="OOZ-Fo-0zi">
                                 <rect key="frame" x="0.0" y="86" width="320" height="44"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="OOZ-Fo-0zi" id="HK2-Lc-hiN">
@@ -79,7 +79,7 @@
                             <outlet property="delegate" destination="O5Q-BW-9cU" id="ATb-ec-eE2"/>
                         </connections>
                     </tableView>
-                    <navigationItem key="navigationItem" title="Top Places" id="ZEg-48-PXO"/>
+                    <navigationItem key="navigationItem" title="Top Regions" id="ZEg-48-PXO"/>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="G9T-6i-hRa" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>

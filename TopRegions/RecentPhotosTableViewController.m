@@ -33,7 +33,6 @@
 - (void)viewDidAppear:(BOOL)animated
 {
     [super viewWillAppear:animated];
-    self.photos = [FlickrFetcherHelper savedPhotos];
 }
 
 - (void)didReceiveMemoryWarning

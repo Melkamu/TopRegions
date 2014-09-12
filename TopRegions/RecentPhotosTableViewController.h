@@ -6,8 +6,8 @@
 //  Copyright (c) 2014 melkam. All rights reserved.
 //
 
-#import "PhotosTableViewController.h"
+#import "CoreDataTableViewController.h"
 
-@interface RecentPhotosTableViewController : PhotosTableViewController
+@interface RecentPhotosTableViewController : CoreDataTableViewController
 
 @end

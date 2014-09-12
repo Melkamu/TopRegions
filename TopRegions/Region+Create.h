@@ -9,5 +9,5 @@
 #import "Region.h"
 
 @interface Region (Create)
-+ (Region *)regionWithId:(NSString *)regionId inManagedObjectContext:(NSManagedObjectContext *)managedContext;
++ (Region *)regionWithId:(NSString *)regionId withPhotographer:(Photographer *)photographer inManagedObjectContext:(NSManagedObjectContext *)managedContext;
 @end

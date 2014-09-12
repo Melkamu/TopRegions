@@ -9,7 +9,8 @@
 #import "Region+Create.h"
 
 @implementation Region (Create)
-+ (Region *)regionWithId:(NSString *)regionId inManagedObjectContext:(NSManagedObjectContext *)managedContext
+
++ (Region *)regionWithId:(NSString *)regionId withPhotographer:(Photographer *)photographer inManagedObjectContext:(NSManagedObjectContext *)managedContext
 {
     Region *region = nil;
     
@@ -25,11 +26,21 @@
         } else if (![matches count]) {
             region = [NSEntityDescription insertNewObjectForEntityForName:@"Region" inManagedObjectContext:managedContext];
             region.regionId = regionId;
+            region.photos = @1;
+            region.photographers = @1;
+            [region addTakersInObject:photographer];
+            
         } else {
             region = [matches lastObject];
+            region.photos = @([region.photos intValue] + 1);
+            if (![region.takersIn member:photographer]) {
+                [region addTakersInObject:photographer];
+                region.photographers = @([region.photographers intValue] + 1);
+            }
         }
     }
     
     return region;
 }
+
 @end
