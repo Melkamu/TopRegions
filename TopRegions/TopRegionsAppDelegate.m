@@ -47,7 +47,7 @@
         if (context) {
             NSArray *photos = [self flickrPhotosAtURL:localURL];
             [context performBlock:^{
-                [Photo loadPhotosFromFlickrArray:photos intoManagedObjectContext:context];
+                [self loadPhotosFromFlickrArray:photos intoManagedObjectContext:context];
                 [context save:NULL];
             }];
         }
@@ -55,6 +55,33 @@
         [self flickrDownloadTaskMightBeComplete];
     }
 }
+
+- (void)loadPhotosFromFlickrArray:(NSArray *)photos intoManagedObjectContext:(NSManagedObjectContext *)managedContext
+{
+    for (NSDictionary *photo in photos) {
+        [Photo photoWithFlickrInfo:photo inManagedObjectContext:managedContext];
+    }
+    
+    // query for region names
+    [self loadRegionNamesInToManagedContext:managedContext];
+}
+
+- (void)loadRegionNamesInToManagedContext:(NSManagedObjectContext *)managedObjectContext
+{
+    NSFetchRequest *request = [NSFetchRequest fetchRequestWithEntityName:@"Region"];
+    request.predicate = nil;
+    
+    NSError *error;
+    NSArray *matches = [managedObjectContext executeFetchRequest:request error:&error];
+    
+    if (!matches && ![matches count]) {
+        // do nothing
+    } else {
+        // query region names for all regions
+    }
+}
+
+
 
 - (NSArray *)flickrPhotosAtURL:(NSURL *)url
 {
@@ -92,7 +119,7 @@
             NSURLSessionConfiguration *urlSessionConfiguration = [NSURLSessionConfiguration backgroundSessionConfiguration:FLICKR_FETCH];
             urlSessionConfiguration.allowsCellularAccess = NO;
             _flickrDownloadSession = [NSURLSession sessionWithConfiguration:urlSessionConfiguration
-                                      delegate:self delegateQueue:nil];
+                                                                   delegate:self delegateQueue:nil];
         });
     }
     

@@ -47,7 +47,6 @@
     for (NSDictionary *photo in photos) {
         [self photoWithFlickrInfo:photo inManagedObjectContext:managedContext];
     }
-    
 }
 
 @end
