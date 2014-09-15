@@ -32,7 +32,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <prototypes>
-                            <tableViewCell contentMode="scaleToFill" restorationIdentifier="Cell of Place" selectionStyle="blue" accessoryType="disclosureIndicator" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="Regions Cell" textLabel="MYa-AF-oYw" detailTextLabel="mlY-IB-cPa" style="IBUITableViewCellStyleSubtitle" id="Aqs-wE-lBR">
+                            <tableViewCell contentMode="scaleToFill" selectionStyle="blue" accessoryType="disclosureIndicator" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="Regions Cell" textLabel="MYa-AF-oYw" detailTextLabel="mlY-IB-cPa" style="IBUITableViewCellStyleSubtitle" id="Aqs-wE-lBR">
                                 <rect key="frame" x="0.0" y="86" width="320" height="44"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="Aqs-wE-lBR" id="fXC-Xh-MaI">
@@ -219,11 +219,11 @@
             </objects>
             <point key="canvasLocation" x="1398" y="484"/>
         </scene>
-        <!--Navigation Controller - TopPlaces-->
+        <!--Navigation Controller - Top Regions-->
         <scene sceneID="thr-zj-vfA">
             <objects>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="PXh-qd-rYJ" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="TopPlaces" id="Mvm-gs-vaz"/>
+                    <tabBarItem key="tabBarItem" title="Top Regions" id="Mvm-gs-vaz"/>
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="Ugi-qF-0Jj">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
@@ -264,6 +264,6 @@
         <simulatedScreenMetrics key="destination" type="retina4"/>
     </simulatedMetricsContainer>
     <inferredMetricsTieBreakers>
-        <segue reference="odj-La-Sv8"/>
+        <segue reference="MdH-iT-MNy"/>
     </inferredMetricsTieBreakers>
 </document>

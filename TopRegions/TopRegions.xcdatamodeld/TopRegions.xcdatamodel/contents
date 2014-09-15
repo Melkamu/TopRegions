@@ -7,6 +7,7 @@
         <attribute name="thumbnailURL" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="title" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="unique" optional="YES" attributeType="String" syncable="YES"/>
+        <relationship name="recent" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Recent" inverseName="photo" inverseEntity="Recent" syncable="YES"/>
         <relationship name="takenBy" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Photographer" inverseName="photosTaken" inverseEntity="Photographer" syncable="YES"/>
         <relationship name="takenIn" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Region" inverseName="photosIn" inverseEntity="Region" syncable="YES"/>
     </entity>
@@ -14,6 +15,10 @@
         <attribute name="name" optional="YES" attributeType="String" syncable="YES"/>
         <relationship name="photosTaken" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="Photo" inverseName="takenBy" inverseEntity="Photo" syncable="YES"/>
         <relationship name="takesIn" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Region" inverseName="takersIn" inverseEntity="Region" syncable="YES"/>
+    </entity>
+    <entity name="Recent" representedClassName="Recent" syncable="YES">
+        <attribute name="created" optional="YES" attributeType="Date" syncable="YES"/>
+        <relationship name="photo" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Photo" inverseName="recent" inverseEntity="Photo" syncable="YES"/>
     </entity>
     <entity name="Region" representedClassName="Region" syncable="YES">
         <attribute name="name" optional="YES" attributeType="String" syncable="YES"/>
@@ -24,8 +29,9 @@
         <relationship name="takersIn" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="Photographer" inverseName="takesIn" inverseEntity="Photographer" syncable="YES"/>
     </entity>
     <elements>
-        <element name="Photo" positionX="-344" positionY="-9" width="128" height="163"/>
+        <element name="Photo" positionX="-344" positionY="-9" width="128" height="178"/>
         <element name="Photographer" positionX="126" positionY="-0" width="128" height="88"/>
         <element name="Region" positionX="-119" positionY="182" width="128" height="133"/>
+        <element name="Recent" positionX="-153" positionY="-27" width="128" height="73"/>
     </elements>
 </model>

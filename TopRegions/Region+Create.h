@@ -10,4 +10,5 @@
 
 @interface Region (Create)
 + (Region *)regionWithId:(NSString *)regionId withPhotographer:(Photographer *)photographer inManagedObjectContext:(NSManagedObjectContext *)managedContext;
++ (void)loadRegionNamesInToManagedContext:(NSManagedObjectContext *)managedObjectContext;
 @end

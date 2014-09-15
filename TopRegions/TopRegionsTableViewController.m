@@ -8,12 +8,20 @@
 
 #import "TopRegionsTableViewController.h"
 #import "Region.h"
+#import "PhotoDatabaseAvailability.h"
 
 @interface TopRegionsTableViewController ()
 
 @end
 
 @implementation TopRegionsTableViewController
+
+- (void)awakeFromNib
+{
+    [[NSNotificationCenter defaultCenter] addObserverForName:PhotoDatabaseAvailabilityNotification object:nil queue:nil usingBlock:^ (NSNotification *notification) {
+        self.managedObjectContext = notification.userInfo[PhotoDatabaseAvailabilityContext];
+    }];
+}
 
 - (void)setManagedObjectContext:(NSManagedObjectContext *)managedObjectContext
 {
