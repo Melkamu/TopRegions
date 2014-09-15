@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>IDESourceControlProjectFavoriteDictionaryKey</key>
+	<false/>
+	<key>IDESourceControlProjectIdentifier</key>
+	<string>C90D68C2-3394-4174-92D5-B264ABD84C21</string>
+	<key>IDESourceControlProjectName</key>
+	<string>TopRegions</string>
+	<key>IDESourceControlProjectOriginsDictionary</key>
+	<dict>
+		<key>49A1C660-E575-442F-A21B-0E45D4B393E2</key>
+		<string>https://github.com/Melkamu/TopRegions.git</string>
+	</dict>
+	<key>IDESourceControlProjectPath</key>
+	<string>TopRegions.xcodeproj/project.xcworkspace</string>
+	<key>IDESourceControlProjectRelativeInstallPathDictionary</key>
+	<dict>
+		<key>49A1C660-E575-442F-A21B-0E45D4B393E2</key>
+		<string>../..</string>
+	</dict>
+	<key>IDESourceControlProjectURL</key>
+	<string>https://github.com/Melkamu/TopRegions.git</string>
+	<key>IDESourceControlProjectVersion</key>
+	<integer>110</integer>
+	<key>IDESourceControlProjectWCCIdentifier</key>
+	<string>49A1C660-E575-442F-A21B-0E45D4B393E2</string>
+	<key>IDESourceControlProjectWCConfigurations</key>
+	<array>
+		<dict>
+			<key>IDESourceControlRepositoryExtensionIdentifierKey</key>
+			<string>public.vcs.git</string>
+			<key>IDESourceControlWCCIdentifierKey</key>
+			<string>49A1C660-E575-442F-A21B-0E45D4B393E2</string>
+			<key>IDESourceControlWCCName</key>
+			<string>TopRegions</string>
+		</dict>
+	</array>
+</dict>
+</plist>

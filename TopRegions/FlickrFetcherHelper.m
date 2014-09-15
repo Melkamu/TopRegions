@@ -7,6 +7,7 @@
 //
 
 #import "FlickrFetcherHelper.h"
+#import "FlickrFetcher.h"
 
 @implementation FlickrFetcherHelper
 
@@ -24,6 +25,23 @@
                 onCompleteFetch(topPlaces, error);
             });
             
+        }
+    }];
+    [downloadTask resume];
+}
+
++ (void)fetchRecentPhotosOnComplete:(void (^) (NSArray *places, NSError *error))onCompleteFetch
+{
+    NSURLSessionConfiguration *configuration = [NSURLSessionConfiguration ephemeralSessionConfiguration];
+    configuration.timeoutIntervalForRequest = 10;
+    NSURLSession *session = [NSURLSession sessionWithConfiguration:configuration];
+    NSURLSessionDownloadTask *downloadTask = [session downloadTaskWithURL:[FlickrFetcher URLforRecentGeoreferencedPhotos] completionHandler:^(NSURL *requestURL, NSURLResponse *response, NSError *error) {
+        if (!error) {
+            NSData *data = [NSData dataWithContentsOfURL:requestURL];
+            NSArray *recentPhotos = [[NSJSONSerialization JSONObjectWithData:data options:0 error:&error] valueForKeyPath:FLICKR_RESULTS_PHOTOS];
+            dispatch_async(dispatch_get_main_queue(), ^{
+                onCompleteFetch(recentPhotos, error);
+            });
         }
     }];
     [downloadTask resume];

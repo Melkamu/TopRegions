@@ -224,11 +224,11 @@
             </objects>
             <point key="canvasLocation" x="357" y="932"/>
         </scene>
-        <!--Navigation Controller - TopPlaces-->
+        <!--Navigation Controller - Top Regions-->
         <scene sceneID="kPk-ZS-ZHP">
             <objects>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="WsD-o8-Z1O" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="TopPlaces" id="ZVK-zV-NjC"/>
+                    <tabBarItem key="tabBarItem" title="Top Regions" id="ZVK-zV-NjC"/>
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="jW9-cS-Cxv">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>

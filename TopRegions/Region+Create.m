@@ -7,6 +7,7 @@
 //
 
 #import "Region+Create.h"
+#import "FlickrFetcherHelper.h"
 
 @implementation Region (Create)
 
@@ -42,5 +43,19 @@
     
     return region;
 }
+
++ (void)loadRegionNamesInToManagedContext:(NSManagedObjectContext *)managedObjectContext
+{
+    NSFetchRequest *request = [NSFetchRequest fetchRequestWithEntityName:@"Region"];
+    request.predicate = nil;
+    
+    NSError *error;
+    NSArray *matches = [managedObjectContext executeFetchRequest:request error:&error];
+    
+    if (matches) {
+        
+    }
+}
+
 
 @end
