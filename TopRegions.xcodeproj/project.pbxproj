@@ -133,6 +133,24 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		A2113A9619C87E22003CEAFF /* View Controllers */ = {
+			isa = PBXGroup;
+			children = (
+				A2DA286419C34CC6007929F6 /* CoreDataTableViewController */,
+				A2DA284119C34C1E007929F6 /* TopRegionsViewController.h */,
+				A2DA284219C34C1E007929F6 /* TopRegionsViewController.m */,
+				A2DA286D19C34DE9007929F6 /* ImageViewController.h */,
+				A2DA286E19C34DE9007929F6 /* ImageViewController.m */,
+				A2DA287919C34ECE007929F6 /* TopRegionsTableViewController.h */,
+				A2DA287A19C34ECE007929F6 /* TopRegionsTableViewController.m */,
+				A2DA287C19C34EEE007929F6 /* RegionPhotosTableViewController.h */,
+				A2DA287D19C34EEE007929F6 /* RegionPhotosTableViewController.m */,
+				A2DA287319C34E4E007929F6 /* RecentPhotosTableViewController.h */,
+				A2DA287419C34E4E007929F6 /* RecentPhotosTableViewController.m */,
+			);
+			name = "View Controllers";
+			sourceTree = "<group>";
+		};
 		A2DA281D19C34C1E007929F6 = {
 			isa = PBXGroup;
 			children = (
@@ -172,21 +190,11 @@
 				A2DA283819C34C1E007929F6 /* TopRegionsAppDelegate.h */,
 				A2DA283919C34C1E007929F6 /* TopRegionsAppDelegate.m */,
 				BDE999A619C61B6B00C1A8EE /* PhotoDatabaseAvailability.h */,
-				A2DA284119C34C1E007929F6 /* TopRegionsViewController.h */,
-				A2DA284219C34C1E007929F6 /* TopRegionsViewController.m */,
-				A2DA286D19C34DE9007929F6 /* ImageViewController.h */,
-				A2DA286E19C34DE9007929F6 /* ImageViewController.m */,
-				A2DA287919C34ECE007929F6 /* TopRegionsTableViewController.h */,
-				A2DA287A19C34ECE007929F6 /* TopRegionsTableViewController.m */,
-				A2DA287C19C34EEE007929F6 /* RegionPhotosTableViewController.h */,
-				A2DA287D19C34EEE007929F6 /* RegionPhotosTableViewController.m */,
-				A2DA287319C34E4E007929F6 /* RecentPhotosTableViewController.h */,
-				A2DA287419C34E4E007929F6 /* RecentPhotosTableViewController.m */,
 				A2DA284419C34C1E007929F6 /* Images.xcassets */,
+				A2113A9619C87E22003CEAFF /* View Controllers */,
 				BDE999AA19C6202000C1A8EE /* Managed Document */,
 				A2DA288219C359DB007929F6 /* Data Models */,
 				A2DA286819C34D00007929F6 /* Flickr Fetcher */,
-				A2DA286419C34CC6007929F6 /* CoreDataTableViewController */,
 				A2DA283019C34C1E007929F6 /* Supporting Files */,
 			);
 			path = TopRegions;
