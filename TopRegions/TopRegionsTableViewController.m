@@ -9,6 +9,7 @@
 #import "TopRegionsTableViewController.h"
 #import "Region.h"
 #import "PhotoDatabaseAvailability.h"
+#import "RegionPhotosTableViewController.h"
 
 @interface TopRegionsTableViewController ()
 
@@ -45,6 +46,35 @@
     cell.textLabel.text = region.name;
     cell.detailTextLabel.text = [NSString stringWithFormat:@"%@ photos by %@ photographers.", region.photos , region.photographers];
     return cell;
+}
+
+
+- (void)tableView:(UITableView *)tableView didDeselectRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    id detailVc = [self.splitViewController.viewControllers lastObject];
+    if ([detailVc isKindOfClass:[UINavigationController class]]) {
+        detailVc = [((UINavigationController *)detailVc).viewControllers firstObject];
+        [self prepareViewController:detailVc forSegue:nil fromIndexPath:indexPath];
+    }
+}
+
+- (void)prepareViewController:(id)vc forSegue:(NSString *)segueIdentifier fromIndexPath:(NSIndexPath *)indexPath
+{
+    Region *selectedRegion = [self.fetchedResultsController objectAtIndexPath:indexPath];
+    if ([vc isKindOfClass:[RegionPhotosTableViewController class]]) {
+        //prepare vc
+            RegionPhotosTableViewController *rptvc = (RegionPhotosTableViewController *) vc;
+            rptvc.region = selectedRegion;
+    }
+}
+
+- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
+{
+    NSIndexPath *indexPath = nil;
+    if ([sender isKindOfClass:[UITableViewCell class]]) {
+        indexPath = [self.tableView indexPathForCell:sender];
+    }
+    [self prepareViewController:segue.destinationViewController forSegue:segue.identifier fromIndexPath:indexPath];
 }
 
 @end

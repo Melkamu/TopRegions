@@ -6,8 +6,9 @@
 //  Copyright (c) 2014 Nerdery. All rights reserved.
 //
 
-#import "CoreDataTableViewController.h"
+#import "PhotosCDTVC.h"
+#import "Region.h"
 
-@interface RegionPhotosTableViewController : CoreDataTableViewController
-
+@interface RegionPhotosTableViewController : PhotosCDTVC
+@property (nonatomic, strong) Region *region;
 @end

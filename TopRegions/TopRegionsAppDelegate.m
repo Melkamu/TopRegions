@@ -21,6 +21,7 @@
 
 #define FLICKR_FETCH @"Flickr Just Uploaded Fetch"
 #define FOREGROUND_FLICKR_FETCH_INTERVAL (20*60)
+#define BACKGROUND_FLICKR_FETCH_TIMEOUT (10)
 
 @implementation TopRegionsAppDelegate
 
@@ -32,9 +33,40 @@
     return YES;
 }
 
+- (void)application:(UIApplication *)application performFetchWithCompletionHandler:(void (^)(UIBackgroundFetchResult))completionHandler{
+    if (self.photoDatabaseContext) {
+        NSURLSessionConfiguration *sessionConfiguration = [NSURLSessionConfiguration ephemeralSessionConfiguration];
+        sessionConfiguration.allowsCellularAccess = NO;
+        sessionConfiguration.timeoutIntervalForRequest = BACKGROUND_FLICKR_FETCH_TIMEOUT;
+        NSURLSession *session = [NSURLSession sessionWithConfiguration:sessionConfiguration];
+        NSURLRequest *request = [[NSURLRequest alloc] initWithURL:[FlickrFetcher URLforRecentGeoreferencedPhotos]];
+        NSURLSessionDownloadTask *downloadTask = [session downloadTaskWithRequest:request
+                                                                completionHandler:^(NSURL *localUrl, NSURLResponse *response, NSError *error) {
+                                                                    if (error) {
+                                                                        NSLog(@"Flickr background fetch failed: %@", error.localizedDescription);
+                                                                        completionHandler(UIBackgroundFetchResultNoData);
+                                                                    } else {
+                                                                        [self loadFlickrPhotosFromLocalURL:localUrl intoContext:self.photoDatabaseContext andExcuteBlock:^{
+                                                                            completionHandler(UIBackgroundFetchResultNewData);
+                                                                        }];
+                                                                    }
+                                                                }];
+        [downloadTask resume];
+    } else {
+        completionHandler(UIBackgroundFetchResultNoData); // no app-switcher update if no database!
+    }
+}
+
+- (void)application:(UIApplication *)application handleEventsForBackgroundURLSession:(NSString *)identifier completionHandler:(void (^)())completionHandler
+{
+    self.flickrDownloadBackgroundURLSessionCompletionHandler = completionHandler;
+}
+
 - (void)setPhotoDatabaseContext:(NSManagedObjectContext *)photoDatabaseContext
 {
     _photoDatabaseContext = photoDatabaseContext;
+    
+    [NSTimer scheduledTimerWithTimeInterval:FOREGROUND_FLICKR_FETCH_INTERVAL target:self selector:@selector(startFlickrFetch) userInfo:nil repeats:YES];
     
     NSDictionary *userInfo = self.photoDatabaseContext ? @{ PhotoDatabaseAvailabilityContext : self.photoDatabaseContext} : nil;
     [[NSNotificationCenter defaultCenter] postNotificationName:PhotoDatabaseAvailabilityNotification object:self userInfo:userInfo];
@@ -82,12 +114,29 @@
 }
 
 
-
 - (NSArray *)flickrPhotosAtURL:(NSURL *)url
 {
     NSData *flickrJSONData = [NSData dataWithContentsOfURL:url];
     NSDictionary *flickrPropertyList = [NSJSONSerialization JSONObjectWithData:flickrJSONData options:0 error:NULL];
     return [flickrPropertyList valueForKeyPath:FLICKR_RESULTS_PHOTOS];
+}
+
+- (void)loadFlickrPhotosFromLocalURL:(NSURL *)localFile intoContext:(NSManagedObjectContext *)context andExcuteBlock:(void(^)())whenDone
+{
+    if (context) {
+        NSArray *photos = [self flickrPhotosAtURL:localFile];
+        [context performBlock:^{
+            [Photo loadPhotosFromFlickrArray:photos intoManagedObjectContext:context];
+            [context save:NULL];
+            if (whenDone) {
+                whenDone();
+            }
+        }];
+    } else {
+        if (whenDone) {
+            whenDone();
+        }
+    }
 }
 
 - (void)URLSession:(NSURLSession *)session downloadTask:(NSURLSessionDownloadTask *)downloadTask didResumeAtOffset:(int64_t)fileOffset expectedTotalBytes:(int64_t)expectedTotalBytes
@@ -150,32 +199,4 @@
         }
     }];
 }
-							
-- (void)applicationWillResignActive:(UIApplication *)application
-{
-    // Sent when the application is about to move from active to inactive state. This can occur for certain types of temporary interruptions (such as an incoming phone call or SMS message) or when the user quits the application and it begins the transition to the background state.
-    // Use this method to pause ongoing tasks, disable timers, and throttle down OpenGL ES frame rates. Games should use this method to pause the game.
-}
-
-- (void)applicationDidEnterBackground:(UIApplication *)application
-{
-    // Use this method to release shared resources, save user data, invalidate timers, and store enough application state information to restore your application to its current state in case it is terminated later. 
-    // If your application supports background execution, this method is called instead of applicationWillTerminate: when the user quits.
-}
-
-- (void)applicationWillEnterForeground:(UIApplication *)application
-{
-    // Called as part of the transition from the background to the inactive state; here you can undo many of the changes made on entering the background.
-}
-
-- (void)applicationDidBecomeActive:(UIApplication *)application
-{
-    // Restart any tasks that were paused (or not yet started) while the application was inactive. If the application was previously in the background, optionally refresh the user interface.
-}
-
-- (void)applicationWillTerminate:(UIApplication *)application
-{
-    // Called when the application is about to terminate. Save data if appropriate. See also applicationDidEnterBackground:.
-}
-
 @end

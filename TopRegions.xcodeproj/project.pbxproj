@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		A2113A9D19CA389A003CEAFF /* PhotosCDTVC.m in Sources */ = {isa = PBXBuildFile; fileRef = A2113A9C19CA389A003CEAFF /* PhotosCDTVC.m */; };
 		A228627819C369E0003D1B76 /* Region.m in Sources */ = {isa = PBXBuildFile; fileRef = A228627719C369E0003D1B76 /* Region.m */; };
 		A228627B19C36A32003D1B76 /* Region+Create.m in Sources */ = {isa = PBXBuildFile; fileRef = A228627A19C36A32003D1B76 /* Region+Create.m */; };
 		A2DA282A19C34C1E007929F6 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A2DA282919C34C1E007929F6 /* Foundation.framework */; };
@@ -52,6 +53,8 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		A2113A9B19CA389A003CEAFF /* PhotosCDTVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PhotosCDTVC.h; sourceTree = "<group>"; };
+		A2113A9C19CA389A003CEAFF /* PhotosCDTVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PhotosCDTVC.m; sourceTree = "<group>"; };
 		A228627619C369E0003D1B76 /* Region.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Region.h; sourceTree = "<group>"; };
 		A228627719C369E0003D1B76 /* Region.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Region.m; sourceTree = "<group>"; };
 		A228627919C36A32003D1B76 /* Region+Create.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "Region+Create.h"; sourceTree = "<group>"; };
@@ -133,7 +136,7 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		A2113A9619C87E22003CEAFF /* View Controllers */ = {
+		A2113A9619C87E22003CEAFF /* Controllers */ = {
 			isa = PBXGroup;
 			children = (
 				A2DA286419C34CC6007929F6 /* CoreDataTableViewController */,
@@ -141,6 +144,8 @@
 				A2DA284219C34C1E007929F6 /* TopRegionsViewController.m */,
 				A2DA286D19C34DE9007929F6 /* ImageViewController.h */,
 				A2DA286E19C34DE9007929F6 /* ImageViewController.m */,
+				A2113A9B19CA389A003CEAFF /* PhotosCDTVC.h */,
+				A2113A9C19CA389A003CEAFF /* PhotosCDTVC.m */,
 				A2DA287919C34ECE007929F6 /* TopRegionsTableViewController.h */,
 				A2DA287A19C34ECE007929F6 /* TopRegionsTableViewController.m */,
 				A2DA287C19C34EEE007929F6 /* RegionPhotosTableViewController.h */,
@@ -148,7 +153,17 @@
 				A2DA287319C34E4E007929F6 /* RecentPhotosTableViewController.h */,
 				A2DA287419C34E4E007929F6 /* RecentPhotosTableViewController.m */,
 			);
-			name = "View Controllers";
+			name = Controllers;
+			sourceTree = "<group>";
+		};
+		A2113A9719CA2249003CEAFF /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				A2DA283B19C34C1E007929F6 /* Main_iPhone.storyboard */,
+				A2DA283E19C34C1E007929F6 /* Main_iPad.storyboard */,
+			);
+			name = Views;
+			path = ..;
 			sourceTree = "<group>";
 		};
 		A2DA281D19C34C1E007929F6 = {
@@ -184,15 +199,13 @@
 		A2DA282F19C34C1E007929F6 /* TopRegions */ = {
 			isa = PBXGroup;
 			children = (
-				A2DA287F19C355F9007929F6 /* TopRegions.xcdatamodeld */,
-				A2DA283B19C34C1E007929F6 /* Main_iPhone.storyboard */,
-				A2DA283E19C34C1E007929F6 /* Main_iPad.storyboard */,
 				A2DA283819C34C1E007929F6 /* TopRegionsAppDelegate.h */,
 				A2DA283919C34C1E007929F6 /* TopRegionsAppDelegate.m */,
 				BDE999A619C61B6B00C1A8EE /* PhotoDatabaseAvailability.h */,
 				A2DA284419C34C1E007929F6 /* Images.xcassets */,
-				A2113A9619C87E22003CEAFF /* View Controllers */,
+				A2113A9619C87E22003CEAFF /* Controllers */,
 				BDE999AA19C6202000C1A8EE /* Managed Document */,
+				A2113A9719CA2249003CEAFF /* Views */,
 				A2DA288219C359DB007929F6 /* Data Models */,
 				A2DA286819C34D00007929F6 /* Flickr Fetcher */,
 				A2DA283019C34C1E007929F6 /* Supporting Files */,
@@ -253,6 +266,7 @@
 		A2DA288219C359DB007929F6 /* Data Models */ = {
 			isa = PBXGroup;
 			children = (
+				A2DA287F19C355F9007929F6 /* TopRegions.xcdatamodeld */,
 				A228627619C369E0003D1B76 /* Region.h */,
 				A228627719C369E0003D1B76 /* Region.m */,
 				A228627919C36A32003D1B76 /* Region+Create.h */,
@@ -394,6 +408,7 @@
 				A228627B19C36A32003D1B76 /* Region+Create.m in Sources */,
 				A2DA286719C34CF2007929F6 /* FlickrFetcherHelper.m in Sources */,
 				A2DA284319C34C1E007929F6 /* TopRegionsViewController.m in Sources */,
+				A2113A9D19CA389A003CEAFF /* PhotosCDTVC.m in Sources */,
 				A228627819C369E0003D1B76 /* Region.m in Sources */,
 				A2DA288119C355F9007929F6 /* TopRegions.xcdatamodeld in Sources */,
 				A2DA283A19C34C1E007929F6 /* TopRegionsAppDelegate.m in Sources */,
@@ -444,6 +459,7 @@
 				A2DA283C19C34C1E007929F6 /* Base */,
 			);
 			name = Main_iPhone.storyboard;
+			path = TopRegions;
 			sourceTree = "<group>";
 		};
 		A2DA283E19C34C1E007929F6 /* Main_iPad.storyboard */ = {
@@ -452,6 +468,7 @@
 				A2DA283F19C34C1E007929F6 /* Base */,
 			);
 			name = Main_iPad.storyboard;
+			path = TopRegions;
 			sourceTree = "<group>";
 		};
 		A2DA285419C34C1E007929F6 /* InfoPlist.strings */ = {

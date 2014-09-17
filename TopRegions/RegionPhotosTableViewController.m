@@ -23,27 +23,26 @@
     return self;
 }
 
-- (void)viewDidLoad
+- (void)setRegion:(Region *)region
 {
-    [super viewDidLoad];
-    // Do any additional setup after loading the view.
+    _region = region;
+    self.title = region.regionId; // change it to Region name
+    [self setupFetchedResultsController];
 }
 
-- (void)didReceiveMemoryWarning
+- (void)setupFetchedResultsController
 {
-    [super didReceiveMemoryWarning];
-    // Dispose of any resources that can be recreated.
+    NSManagedObjectContext * context = self.region.managedObjectContext;
+    
+    if (context) {
+        NSFetchRequest *request = [NSFetchRequest fetchRequestWithEntityName:@"Photo"];
+        request.predicate = [NSPredicate predicateWithFormat:@"takenIn = %@", self.region];
+        request.sortDescriptors = @[[NSSortDescriptor sortDescriptorWithKey:@"title" ascending:YES selector:@selector(localizedStandardCompare:)]];
+        
+        self.fetchedResultsController = [[NSFetchedResultsController alloc] initWithFetchRequest:request managedObjectContext:context sectionNameKeyPath:nil cacheName:nil];
+    } else {
+        self.fetchedResultsController = nil;
+    }
 }
-
-/*
-#pragma mark - Navigation
-
-// In a storyboard-based application, you will often want to do a little preparation before navigation
-- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
-{
-    // Get the new view controller using [segue destinationViewController].
-    // Pass the selected object to the new view controller.
-}
-*/
 
 @end
