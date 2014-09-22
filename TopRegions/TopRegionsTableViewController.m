@@ -30,8 +30,8 @@
     
     NSFetchRequest *request = [NSFetchRequest fetchRequestWithEntityName:@"Region"];
     request.predicate = nil;
-    request.sortDescriptors = @[[NSSortDescriptor sortDescriptorWithKey:@"name" ascending:YES selector:@selector(localizedStandardCompare:)]];
-    request.fetchLimit = 50;
+    request.sortDescriptors = @[[NSSortDescriptor sortDescriptorWithKey:@"photographers" ascending:NO],[NSSortDescriptor sortDescriptorWithKey:@"name" ascending:YES selector:@selector(localizedStandardCompare:)]];
+    request.fetchLimit = 16;
     
     self.fetchedResultsController = [[NSFetchedResultsController alloc] initWithFetchRequest:request
                                                                         managedObjectContext:managedObjectContext

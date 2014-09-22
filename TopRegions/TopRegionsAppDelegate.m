@@ -11,6 +11,8 @@
 #import "Photo+Flickr.h"
 #import "PhotoDatabaseAvailability.h"
 #import "ManagedDocumentHelper.h"
+#import "Region.h"
+#import "Region+Create.h"
 
 @interface TopRegionsAppDelegate() <NSURLSessionDownloadDelegate>
 @property (nonatomic, strong) NSManagedObjectContext *photoDatabaseContext;
@@ -94,25 +96,8 @@
         [Photo photoWithFlickrInfo:photo inManagedObjectContext:managedContext];
     }
     
-    // query for region names
-    [self loadRegionNamesInToManagedContext:managedContext];
+    [Region loadRegionNamesInToManagedContext:managedContext];
 }
-
-- (void)loadRegionNamesInToManagedContext:(NSManagedObjectContext *)managedObjectContext
-{
-    NSFetchRequest *request = [NSFetchRequest fetchRequestWithEntityName:@"Region"];
-    request.predicate = nil;
-    
-    NSError *error;
-    NSArray *matches = [managedObjectContext executeFetchRequest:request error:&error];
-    
-    if (!matches && ![matches count]) {
-        // do nothing
-    } else {
-        // query region names for all regions
-    }
-}
-
 
 - (NSArray *)flickrPhotosAtURL:(NSURL *)url
 {

@@ -10,6 +10,7 @@
 #import "FlickrFetcher.h"
 #import "Photographer+Create.h"
 #import "Region+Create.h"
+#import "Region.h"
 
 @implementation Photo (Flickr)
 + (Photo *)photoWithFlickrInfo:(NSDictionary *)photoDictionary inManagedObjectContext:(NSManagedObjectContext *)managedContext
@@ -33,6 +34,7 @@
         photo.title = [photoDictionary valueForKeyPath:FLICKR_PHOTO_TITLE];
         photo.subtitle = [photoDictionary valueForKeyPath:FLICKR_PHOTO_DESCRIPTION];
         photo.imageURL = [[FlickrFetcher URLforPhoto:photoDictionary format:FlickrPhotoFormatLarge] absoluteString];
+        photo.thumbnailURL = [[FlickrFetcher URLforPhoto:photoDictionary format:FlickrPhotoFormatSquare] absoluteString];
         NSString *photographerName = [photoDictionary valueForKeyPath:FLICKR_PHOTO_OWNER];
         photo.takenBy = [Photographer phototgrapherWithName:photographerName inMangedObjectContext:managedContext];
         NSString *placeId = [photoDictionary valueForKeyPath:FLICKR_PHOTO_PLACE_ID];

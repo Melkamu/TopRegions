@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		A2113A9D19CA389A003CEAFF /* PhotosCDTVC.m in Sources */ = {isa = PBXBuildFile; fileRef = A2113A9C19CA389A003CEAFF /* PhotosCDTVC.m */; };
+		A21FC59219D089C000038F65 /* RegionNameDownloadHelper.m in Sources */ = {isa = PBXBuildFile; fileRef = A21FC59119D089C000038F65 /* RegionNameDownloadHelper.m */; };
 		A228627819C369E0003D1B76 /* Region.m in Sources */ = {isa = PBXBuildFile; fileRef = A228627719C369E0003D1B76 /* Region.m */; };
 		A228627B19C36A32003D1B76 /* Region+Create.m in Sources */ = {isa = PBXBuildFile; fileRef = A228627A19C36A32003D1B76 /* Region+Create.m */; };
 		A2DA282A19C34C1E007929F6 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A2DA282919C34C1E007929F6 /* Foundation.framework */; };
@@ -55,6 +56,8 @@
 /* Begin PBXFileReference section */
 		A2113A9B19CA389A003CEAFF /* PhotosCDTVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PhotosCDTVC.h; sourceTree = "<group>"; };
 		A2113A9C19CA389A003CEAFF /* PhotosCDTVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PhotosCDTVC.m; sourceTree = "<group>"; };
+		A21FC59019D089C000038F65 /* RegionNameDownloadHelper.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RegionNameDownloadHelper.h; sourceTree = "<group>"; };
+		A21FC59119D089C000038F65 /* RegionNameDownloadHelper.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RegionNameDownloadHelper.m; sourceTree = "<group>"; };
 		A228627619C369E0003D1B76 /* Region.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Region.h; sourceTree = "<group>"; };
 		A228627719C369E0003D1B76 /* Region.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Region.m; sourceTree = "<group>"; };
 		A228627919C36A32003D1B76 /* Region+Create.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "Region+Create.h"; sourceTree = "<group>"; };
@@ -259,6 +262,8 @@
 				A2DA286B19C34D48007929F6 /* FlickrFetcher.m */,
 				A2DA286519C34CF2007929F6 /* FlickrFetcherHelper.h */,
 				A2DA286619C34CF2007929F6 /* FlickrFetcherHelper.m */,
+				A21FC59019D089C000038F65 /* RegionNameDownloadHelper.h */,
+				A21FC59119D089C000038F65 /* RegionNameDownloadHelper.m */,
 			);
 			name = "Flickr Fetcher";
 			sourceTree = "<group>";
@@ -414,6 +419,7 @@
 				A2DA283A19C34C1E007929F6 /* TopRegionsAppDelegate.m in Sources */,
 				A2DA286319C34C66007929F6 /* CoreDataTableViewController.m in Sources */,
 				A2DA286C19C34D48007929F6 /* FlickrFetcher.m in Sources */,
+				A21FC59219D089C000038F65 /* RegionNameDownloadHelper.m in Sources */,
 				BDE999AD19C66E0700C1A8EE /* Recent.m in Sources */,
 				A2DA289A19C36392007929F6 /* Photographer+Create.m in Sources */,
 				A2DA288E19C35AED007929F6 /* Photo.m in Sources */,

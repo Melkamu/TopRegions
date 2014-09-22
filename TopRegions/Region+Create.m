@@ -8,6 +8,8 @@
 
 #import "Region+Create.h"
 #import "FlickrFetcherHelper.h"
+#import "RegionNameDownloadHelper.h"
+#import "FlickrFetcher.h"
 
 @implementation Region (Create)
 
@@ -47,12 +49,32 @@
 + (void)loadRegionNamesInToManagedContext:(NSManagedObjectContext *)managedObjectContext
 {
     NSFetchRequest *request = [NSFetchRequest fetchRequestWithEntityName:@"Region"];
-    request.predicate = nil;
+    request.predicate = [NSPredicate predicateWithFormat:@"name.length = %@", nil];
     
     NSError *error;
     NSArray *matches = [managedObjectContext executeFetchRequest:request error:&error];
     
-    if (matches) {
+    if (!matches || ![matches count]) {
+        // do nothing
+    } else {
+        for (Region *match in matches) {
+            
+            [RegionNameDownloadHelper startBackroundFetchRegionInfoForPlaceId:match.regionId onCompletion:^(NSDictionary *regionInfo, void (^whenComplete)()) {
+                if (managedObjectContext) {
+                    [managedObjectContext performBlock:^{
+                        NSString *regionName = [FlickrFetcher extractRegionNameFromPlaceInformation:regionInfo];
+                        
+                        match.name = regionName;
+                        
+                        if (whenComplete) {
+                            whenComplete();
+                        }
+                    }];
+                } else if (whenComplete) {
+                    whenComplete();
+                }
+            }];
+        }
         
     }
 }

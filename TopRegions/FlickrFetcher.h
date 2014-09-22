@@ -48,5 +48,6 @@ typedef enum {
 
 + (NSString *)extractNameOfPlace:(id)placeId fromPlaceInformation:(NSDictionary *)place;
 + (NSString *)extractRegionNameFromPlaceInformation:(NSDictionary *)placeInformation;
++ (NSString *)extractRegionIdFromPlaceInformation:(NSDictionary *)placeInformation;
 
 @end
