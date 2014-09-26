@@ -9,5 +9,5 @@
 #import "CoreDataTableViewController.h"
 
 @interface RecentPhotosTableViewController : CoreDataTableViewController
-
+@property (nonatomic, strong) NSManagedObjectContext *managedObjectContext;
 @end

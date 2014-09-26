@@ -29,14 +29,14 @@
         recent.photo = photo;
         recent.created = [NSDate date];
         
-//        request.predicate = nil;
-//        request.sortDescriptors = @[[NSSortDescriptor sortDescriptorWithKey:@"created" ascending:NO]];
-//        
-//        matches = [photo.managedObjectContext executeFetchRequest:request error:&error];
-//        
-//        if ([matches count] > MAXIMUM_RECENT_PHOTOS) {
-//            [photo.managedObjectContext deleteObject:[matches lastObject]];
-//        }
+        request.predicate = nil;
+        request.sortDescriptors = @[[NSSortDescriptor sortDescriptorWithKey:@"created" ascending:NO]];
+        
+        matches = [photo.managedObjectContext executeFetchRequest:request error:&error];
+        
+        if ([matches count] > MAXIMUM_RECENT_PHOTOS) {
+            [photo.managedObjectContext deleteObject:[matches lastObject]];
+        }
         
     } else {
         recent = [matches lastObject];

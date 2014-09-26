@@ -8,6 +8,7 @@
 
 #import "RecentPhotosTableViewController.h"
 #import "FlickrFetcherHelper.h"
+#import "PhotoDatabaseAvailability.h"
 
 @interface RecentPhotosTableViewController ()
 
@@ -15,30 +16,22 @@
 
 @implementation RecentPhotosTableViewController
 
-- (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
+- (void)awakeFromNib
 {
-    self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
-    if (self) {
-        // Custom initialization
-    }
-    return self;
+    [super awakeFromNib];
+    [[NSNotificationCenter defaultCenter] addObserverForName:PhotoDatabaseAvailabilityNotification object:nil queue:nil usingBlock:^(NSNotification *note) {
+        self.managedObjectContext = note.userInfo[PhotoDatabaseAvailabilityContext];
+    }];
 }
 
-- (void)viewDidLoad
+- (void)setManagedObjectContext:(NSManagedObjectContext *)managedObjectContext
 {
-    [super viewDidLoad];
-	// Do any additional setup after loading the view.
-}
-
-- (void)viewDidAppear:(BOOL)animated
-{
-    [super viewWillAppear:animated];
-}
-
-- (void)didReceiveMemoryWarning
-{
-    [super didReceiveMemoryWarning];
-    // Dispose of any resources that can be recreated.
+    _managedObjectContext = managedObjectContext;
+    
+    NSFetchRequest  *request = [NSFetchRequest fetchRequestWithEntityName:@"Photo"];
+    request.predicate = [NSPredicate predicateWithFormat:@"recent != nil"];
+    request.sortDescriptors = @[[NSSortDescriptor sortDescriptorWithKey:@"recent.created" ascending:NO]];
+    self.fetchedResultsController = [[NSFetchedResultsController alloc] initWithFetchRequest:request managedObjectContext:self.managedObjectContext sectionNameKeyPath:nil cacheName:nil];
 }
 
 @end
