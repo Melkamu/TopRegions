@@ -6,8 +6,8 @@
 //  Copyright (c) 2014 melkam. All rights reserved.
 //
 
-#import "CoreDataTableViewController.h"
+#import "PhotosCDTVC.h"
 
-@interface RecentPhotosTableViewController : CoreDataTableViewController
+@interface RecentPhotosTableViewController : PhotosCDTVC
 @property (nonatomic, strong) NSManagedObjectContext *managedObjectContext;
 @end

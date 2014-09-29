@@ -7,6 +7,8 @@
 //
 
 #import "RegionPhotosTableViewController.h"
+#import "Recent.h"
+#import "Recent+Create.h"
 
 @interface RegionPhotosTableViewController ()
 
@@ -43,6 +45,13 @@
     } else {
         self.fetchedResultsController = nil;
     }
+}
+
+- (void)prepareViewController:(id)vc forSegue:(NSString *)segueIdentifier fromIndexPath:(NSIndexPath *)indexPath
+{
+    Photo *photo = [self.fetchedResultsController objectAtIndexPath:indexPath];
+    [Recent recentPhoto:photo];
+    [super prepareViewController:vc forSegue:segueIdentifier fromIndexPath:indexPath];
 }
 
 @end

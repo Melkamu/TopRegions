@@ -34,6 +34,7 @@
         
         matches = [photo.managedObjectContext executeFetchRequest:request error:&error];
         
+        // dlete any added last object until becomes even with maximum recents
         if ([matches count] > MAXIMUM_RECENT_PHOTOS) {
             [photo.managedObjectContext deleteObject:[matches lastObject]];
         }

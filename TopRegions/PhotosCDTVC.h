@@ -11,4 +11,5 @@
 @interface PhotosCDTVC : CoreDataTableViewController
 // hook up fetchedResultsController to any Photo fetch request
 // use @"Cell of Photos" as your tables cell reuse identifier
+- (void)prepareViewController:(id)vc forSegue:(NSString *)segueIdentifier fromIndexPath:(NSIndexPath *)indexPath;
 @end
